@@ -1,17 +1,66 @@
-import React from 'react'
+import React, { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { CiMenuBurger } from "react-icons/ci";
-
+import { IoClose } from "react-icons/io5";
+import { HiOutlineChevronRight } from "react-icons/hi2";
+import { Link } from "react-router-dom";
+import navbarItems from "../assets/data/data.json"
 
 const Navbar = () => {
-  return (
-    <header>
-        <article>
-        </article>
-    </header>
-  )
-}
+	const [isOpen, setIsOpen] = useState(false);
+    const {newArrivals, men, women, promotions} = navbarItems.navbarItems
 
-export default Navbar
+	return (
+		<header className="p-4">
+			<nav className="flex justify-between items-center">
+				<figure className="pr-24">
+					<Link to="/">
+						<img
+							src="./img/logo-no-background.svg"
+							alt="Niklone's logo"
+							className="w-20"
+						/>
+					</Link>
+				</figure>
+				<CiSearch className="text-2xl" />
+				<Link to="/cart">
+					<CiShoppingCart className="text-2xl" />
+				</Link>
+				<Link to="/user">
+					<CiUser className="text-2xl" />
+				</Link>
+				<CiMenuBurger className="text-2xl" />
+
+				{/* ------ Hamburger Menu Sidebar ------- */}
+				<article className="fixed h-full w-screen lg:hidden bg-black/30 backdrop-blur-sm top-0 right-0">
+					<section className="text-black bg-white flex-col absolute top-0 right-0 h-screen p-3 gap-6 z-50 flex w-5/6">
+                        <IoClose 
+                            onClick={() => setIsOpen(false)}
+                            className="text-3xl flex self-end" 
+                        />
+                        <article className="flex items-center justify-between mx-2">
+                            <p className="text-xl">{newArrivals}</p>
+                            <HiOutlineChevronRight className="text-xl"/>
+                        </article>
+                        <article className="flex items-center justify-between mx-2">
+                            <p className="text-xl">{men}</p>
+                            <HiOutlineChevronRight className="text-xl"/>
+                        </article>
+                        <article className="flex items-center justify-between mx-2">
+                            <p className="text-xl">{women}</p>
+                            <HiOutlineChevronRight className="text-xl"/>
+                        </article>
+                        <article className="flex items-center justify-between mx-2">
+                            <p className="text-xl">{promotions}</p>
+                            <HiOutlineChevronRight className="text-xl"/>
+                        </article>
+                    </section>
+				</article>
+			</nav>
+		</header>
+	);
+};
+
+export default Navbar;
