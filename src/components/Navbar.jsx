@@ -6,11 +6,16 @@ import { CiMenuBurger } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 import { HiOutlineChevronRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
-import navbarItems from "../assets/data/data.json"
+import navbarItems from "../assets/data/data.json";
 
 const Navbar = () => {
-	const [isOpen, setIsOpen] = useState(false);
-    const {newArrivals, men, women, promotions} = navbarItems.navbarItems
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const { newArrivals, men, women, promotions, invitation } =
+		navbarItems.navbarItems;
+
+	const toggleMenu = () => {
+		setIsMenuOpen(!isMenuOpen);
+	};
 
 	return (
 		<header className="p-4">
@@ -31,33 +36,37 @@ const Navbar = () => {
 				<Link to="/user">
 					<CiUser className="text-2xl" />
 				</Link>
-				<CiMenuBurger className="text-2xl" />
+				<CiMenuBurger onClick={toggleMenu} className="text-2xl" />
 
-				{/* ------ Hamburger Menu Sidebar ------- */}
-				<article className="fixed h-full w-screen lg:hidden bg-black/30 backdrop-blur-sm top-0 right-0">
-					<section className="text-black bg-white flex-col absolute top-0 right-0 h-screen p-3 gap-6 z-50 flex w-5/6">
-                        <IoClose 
-                            onClick={() => setIsOpen(false)}
-                            className="text-3xl flex self-end" 
-                        />
-                        <article className="flex items-center justify-between mx-2">
-                            <p className="text-xl">{newArrivals}</p>
-                            <HiOutlineChevronRight className="text-xl"/>
-                        </article>
-                        <article className="flex items-center justify-between mx-2">
-                            <p className="text-xl">{men}</p>
-                            <HiOutlineChevronRight className="text-xl"/>
-                        </article>
-                        <article className="flex items-center justify-between mx-2">
-                            <p className="text-xl">{women}</p>
-                            <HiOutlineChevronRight className="text-xl"/>
-                        </article>
-                        <article className="flex items-center justify-between mx-2">
-                            <p className="text-xl">{promotions}</p>
-                            <HiOutlineChevronRight className="text-xl"/>
-                        </article>
-                    </section>
-				</article>
+				{isMenuOpen && (
+					<article className="fixed h-full w-screen lg:hidden bg-black/30 backdrop-blur-sm top-0 right-0 ">
+						<section className="text-black bg-white flex-col absolute top-0 right-0 h-screen p-6 gap-6 z-50 flex w-5/6 transition ease-in-out delay-200">
+							<IoClose
+								onClick={toggleMenu}
+								className="text-3xl flex self-end mt-3"
+							/>
+							<article className="flex items-center justify-between mx-2">
+								<p className="text-2xl">{newArrivals}</p>
+								<HiOutlineChevronRight className="text-xl" />
+							</article>
+							<article className="flex items-center justify-between mx-2">
+								<p className="text-2xl">{men}</p>
+								<HiOutlineChevronRight className="text-xl" />
+							</article>
+							<article className="flex items-center justify-between mx-2">
+								<p className="text-2xl">{women}</p>
+								<HiOutlineChevronRight className="text-xl" />
+							</article>
+							<article className="flex items-center justify-between mx-2">
+								<p className="text-2xl">{promotions}</p>
+								<HiOutlineChevronRight className="text-xl" />
+							</article>
+							<p className="text-xl text-gray-500">
+								{invitation} <a href="" className="font-semibold text-black">En savoir plus</a>
+							</p>
+						</section>
+					</article>
+				)}
 			</nav>
 		</header>
 	);
