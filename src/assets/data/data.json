@@ -13,5 +13,10 @@
         "popularSecond": "Jordan",
         "popularThird": "AirMax",
         "popularFourth": "Blazer"
+    },
+
+    "cartItems" : {
+        "title": "Entrez votre email pour nous rejoindre.",
+        "information": "En continuant, vous acceptez les Conditions d'utilisation de Nike et vous confirmez avoir lu la Politique de confidentialité de Nike."
     }
 }
