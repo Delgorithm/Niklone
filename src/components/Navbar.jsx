@@ -11,7 +11,7 @@ import navbarItems from "../assets/data/data.json";
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { newArrivals, men, women, promotions, invitation } =
-		navbarItems.navbarItems;
+		navbarItems.navbarItems
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
