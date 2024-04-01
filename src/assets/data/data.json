@@ -5,5 +5,48 @@
         "women":"Femme",
         "promotions":"Promotions",
         "invitation": "Deviens membre Niklaus pour accéder au meilleur des produits et découvrir des contenus inspirations sur le sport."
+    },
+
+    "carouselHero": {
+        "firstOffer": "Livraisons et retours gratuis",
+        "firstProposition": "Membres : Livraison et retours gratuits sous 30 jours."
+    },
+
+    "carouselShoes": {
+        "firstShoe": {
+            "img": "img/chaussure2.jpeg",
+            "model": "Nike Air Force 01",
+            "type": "Chaussure pour Homme",
+            "alt": "Beautiful basket",
+            "price": 169.99
+        },
+        "secondShoe": {
+            "img": "img/chaussure3.jpeg",
+            "model": "Nike Air Force 02",
+            "type": "Chaussure pour Homme",
+            "alt": "Beautiful basket",
+            "price": 179.99
+        },
+        "thirdShoe": {
+            "img": "img/chaussure4.jpeg",
+            "model": "Nike Air Force 03",
+            "type": "Chaussure pour Homme",
+            "alt": "Beautiful basket",
+            "price": 189.99
+        },
+        "fourthShoe": {
+            "img": "img/chaussure5.jpeg",
+            "model": "Nike Air Force 04",
+            "type": "Chaussure pour Homme",
+            "alt": "Beautiful basket",
+            "price": 199.99
+        },
+        "fifthShoe": {
+            "img": "img/chaussure6.jpeg",
+            "model": "Nike Air Force 05",
+            "type": "Chaussure pour Homme",
+            "alt": "Beautiful basket",
+            "price": 229.99
+        }
     }
 }

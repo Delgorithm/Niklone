@@ -12,7 +12,7 @@ import Button from "./Button";
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { newArrivals, men, women, promotions, invitation } =
-		navbarItems.navbarItems;
+		navbarItems.navbarItems
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
