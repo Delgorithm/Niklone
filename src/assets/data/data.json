@@ -5,5 +5,13 @@
         "women":"Femme",
         "promotions":"Promotions",
         "invitation": "Deviens membre Niklaus pour accéder au meilleur des produits et découvrir des contenus inspirations sur le sport."
+    },
+
+    "searchItems" : {
+        "popular": "Recherches populaires",
+        "popularFirst": "Air Force 1",
+        "popularSecond": "Jordan",
+        "popularThird": "AirMax",
+        "popularFourth": "Blazer"
     }
 }
