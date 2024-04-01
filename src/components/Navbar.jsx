@@ -7,15 +7,25 @@ import { IoClose } from "react-icons/io5";
 import { HiOutlineChevronRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import navbarItems from "../assets/data/data.json";
+import searchItems from "../assets/data/data.json";
 import Button from "./Button";
 
 const Navbar = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(true);
+	const [isSearchOpen, setIsSearchOpen] = useState(false);
+
 	const { newArrivals, men, women, promotions, invitation } =
 		navbarItems.navbarItems
 
+	const { popular, popularFirst, popularSecond, popularThird, popularFourth } =
+		searchItems.searchItems;
+
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
+	};
+
+	const toggleSearch = () => {
+		setIsSearchOpen(!isSearchOpen);
 	};
 
 	return (
@@ -31,16 +41,58 @@ const Navbar = () => {
 					</Link>
 				</figure>
 				<section className="flex gap-6">
-					<CiSearch className="text-2xl cursor-pointer" />
+					{/*  Start : Search bar */}
+					<CiSearch
+						onClick={toggleSearch}
+						className="text-2xl cursor-pointer"
+					/>
+					{isSearchOpen && (
+						<article className="fixed h-full w-screen lg:hidden top-0 right-0">
+							<section className="text-black bg-white flex-col absolute top-0 right-0 h-screen z-50 w-full">
+								<section className="flex justify-center items-center gap-2 pt-4">
+									<button>
+										<CiSearch className="text-4xl bg-gray-200 p-2 rounded-full" />
+									</button>
+									<input
+										type="text"
+										className="bg-gray-200 opacity-85 p-2 rounded-3xl outline-none pl-4"
+										placeholder="Rechercher"
+									/>
+									<button
+										onClick={toggleSearch}
+										className="font-semibold text-lg">
+										Annuler
+									</button>
+								</section>
+								<section className="p-10">
+									<p className="opacity-30 font-semibold">{popular}</p>
+									<ul className="mt-4 flex flex-col gap-4">
+										<li className="text-xl font-medium hover:opacity-65">{popularFirst}</li>
+										<li className="text-xl font-medium hover:opacity-65">{popularSecond}</li>
+										<li className="text-xl font-medium hover:opacity-65">{popularThird}</li>
+										<li className="text-xl font-medium hover:opacity-65">{popularFourth}</li>
+									</ul>
+								</section>
+							</section>
+						</article>
+					)}
+					{/*  End : Search bar */}
+
 					<Link to="/cart">
 						<CiShoppingCart className="text-2xl" />
 					</Link>
 					<Link to="/user">
 						<CiUser className="text-2xl" />
 					</Link>
-					<CiMenuBurger onClick={toggleMenu} className="text-2xl cursor-pointer" />
 
-					{isMenuOpen && (
+					<button>
+						<CiMenuBurger
+							onClick={toggleMenu}
+							className="text-2xl cursor-pointer"
+						/>
+					</button>
+
+					{!isMenuOpen && (
 						<article className="fixed h-full w-screen lg:hidden bg-black/30 backdrop-blur-sm top-0 right-0 ">
 							<section className="text-black bg-white flex-col absolute top-0 right-0 h-screen p-6 gap-6 z-50 flex w-5/6 transition ease-in-out delay-200">
 								<IoClose
@@ -64,10 +116,13 @@ const Navbar = () => {
 									<HiOutlineChevronRight className="text-xl" />
 								</article>
 								<p className="text-xl text-gray-500">
-									{invitation} <a href="" className="font-semibold text-black">En savoir plus</a>
+									{invitation}{" "}
+									<a href="" className="font-semibold text-black">
+										En savoir plus
+									</a>
 								</p>
-								<Button label="Nous rejoindre"/>
-								<Button label="S'identifier"/>
+								<Button color="black" text="white" label="Nous rejoindre" />
+								<Button color="" label="S'identifier" />
 							</section>
 						</article>
 					)}

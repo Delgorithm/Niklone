@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Button = ({label, onClick}) => {
+const Button = ({color, label, onClick, text}) => {
   return (
     <button
-      className={`px-2 py-1 rounded hover:opacity-50 active:translate-y-0.5`}
+      className={`px-2 py-1.5 rounded bg-${color} text-${text} hover:opacity-50 active:translate-y-0.5`}
       onClick={onClick}
     >
       {label}
