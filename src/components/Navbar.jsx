@@ -66,8 +66,8 @@ const Navbar = () => {
 								<p className="text-xl text-gray-500">
 									{invitation} <a href="" className="font-semibold text-black">En savoir plus</a>
 								</p>
-								<Button color="black" label="Nous rejoindre"/>
-								<Button color="white" label="S'identifier"/>
+								<Button label="Nous rejoindre"/>
+								<Button label="S'identifier"/>
 							</section>
 						</article>
 					)}
