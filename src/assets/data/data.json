@@ -48,5 +48,18 @@
             "alt": "Beautiful basket",
             "price": 229.99
         }
+    },
+
+    "footerInfo" : {
+        "member": "Devenir membre",
+        "discount": "Réduction",
+        "help": "Aide",
+        "location": "France",
+        "info": "© 2024 Niklone, Inc. Tous droits réservés",
+        "use": "Conditions d'utilisation",
+        "sale": "Conditions générales de vente",
+        "details": "Informations sur l'entreprise",
+        "confidentiality": "Politique de confidentialité et de gestions des cookies",
+        "cookie": "Paramètres des cookies"
     }
 }
