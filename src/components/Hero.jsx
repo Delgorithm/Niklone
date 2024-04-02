@@ -2,14 +2,23 @@ import React from 'react'
 import Button from './Button'
 import { Link } from 'react-router-dom'
 import Carousel from './Carousel'
+import hero from '../assets/data/data.json'
 
 const Hero = () => {
+  const { slogan, title, description } = hero.hero;
+
   return (
     <section>
       <figure>
         <img className="w-full" src="img/chaussure12.jpeg" alt="A basket in black and white" />
       </figure>
-      <article className='flex justify-between items-center mt-4 mx-2'>
+      <article className='flex flex-col justify-center items-center my-10'>
+        <p className='font-medium'>{slogan}</p>
+        <h1 className='text-3xl font-bold my-4'>{title}</h1>
+        <p className='opacity-65'>{description}</p>
+        <button className='px-4 py-1.5 bg-black text-white rounded-full mt-6 cursor-pointer hover:opacity-80'>Acheter</button>
+      </article>
+      <article className='flex justify-between items-center mx-6'>
         <h2 className='text-2xl'>Découvre les articles populaires</h2>
         <section>
           <Link to="/">
