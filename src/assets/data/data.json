@@ -12,6 +12,12 @@
         "firstProposition": "Membres : Livraison et retours gratuits sous 30 jours."
     },
 
+    "hero": {
+        "slogan" : "Ressentez l'iréel",
+        "title": "Niklone Air Force 1 '07",
+        "description": "La technologie Air nouvelle génération est là."
+    },
+
     "carouselShoes": {
         "firstShoe": {
             "img": "img/chaussure2.jpeg",
