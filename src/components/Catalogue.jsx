@@ -1,30 +1,30 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import data from "../assets/data/data.json"
+import { Link } from 'react-router-dom'
 
-const Catalogue = () => {
-  const { firstShoe, secondShoe, thirdShoe, fourthShoe, fifthShoe, sixthShoe, seventhShoe, eigthShoe, ninthShoe, tenthShoe, eleventhShoe, twelthShoe, thirteenthShoe, fourteenthShoe, fiveteenthShoe, sixteenthShoe, seventeenthShoe, eighteenthShoe, nineteenthShoe, twenthShoe, twentyFirstShoe, twentySecondShoe, twentyThirdShoe } = data.catalogueShoes;
-  const allShoes = [firstShoe, secondShoe, thirdShoe, fourthShoe, fifthShoe, sixthShoe, seventhShoe, eigthShoe, ninthShoe, tenthShoe, eleventhShoe, twelthShoe, thirteenthShoe, fourteenthShoe, fiveteenthShoe, sixteenthShoe, seventeenthShoe, eighteenthShoe, nineteenthShoe, twenthShoe, twentyFirstShoe, twentySecondShoe, twentyThirdShoe];
-  console.log(allShoes);
+const Catalogue = ({allShoes}) => {
   return (
     <>
         <Navbar />
-        <article className='mx-6'>
-            <h1>Catalogue</h1>
-            <section className='grid grid-cols-2 gap-4 pb-10'>
+        <section className='mx-2'>
+            <h1 className='text-xl'>Catalogue</h1>
+            <p>{allShoes.length} résultats</p>
+            <section className='grid grid-cols-2 gap-3 pb-10'>
               {allShoes.map(shoe => (
                 <article key={shoe.model}>
-                  <figure>
-                    <img src={shoe.img} alt={shoe.description} />
-                  </figure>
-                  <p>{shoe.model}</p>
-                  <p>{shoe.type}</p>
-                  <p>{shoe.price}</p>
+                  <Link to={`/catalogue/${shoe.model}`}>
+                    <figure>
+                      <img src={shoe.img} alt={shoe.description} />
+                    </figure>
+                    <p>{shoe.model}</p>
+                    <p>{shoe.type}</p>
+                    <p>{shoe.price}</p>
+                  </Link>
                 </article>
               ))}
             </section>
-        </article>
+        </section>
         <Footer />
     </>
   )
