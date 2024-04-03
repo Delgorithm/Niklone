@@ -15,13 +15,13 @@ const Hero = () => {
       <article className='flex flex-col justify-center items-center my-10'>
         <p className='font-medium'>{slogan}</p>
         <h1 className='text-3xl font-bold my-4'>{title}</h1>
-        <p className='opacity-65'>{description}</p>
+        <p className='text-gray-400'>{description}</p>
         <button className='px-4 py-1.5 bg-black text-white rounded-full mt-6 cursor-pointer hover:opacity-80'>Acheter</button>
       </article>
       <article className='flex justify-between items-center mx-6'>
         <h2 className='text-2xl'>Découvre les articles populaires</h2>
         <section>
-          <Link to="/">
+          <Link to="/catalogue">
             Voir tous les articles
           </Link>
         </section>
