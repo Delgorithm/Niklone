@@ -34,7 +34,7 @@ const Navbar = () => {
 				<figure className="pr-24">
 					<Link to="/">
 						<img
-							src="./img/logo-no-background.svg"
+							src="/img/logo-no-background.svg"
 							alt="Niklone's logo"
 							className="w-20"
 						/>
