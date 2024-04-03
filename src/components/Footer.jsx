@@ -13,10 +13,10 @@ const Footer = () => {
     <footer className='bg-black'>
         <article className='p-6'>
             <section className='text-white'>
-                <p>{footerInfo.member}</p>
-                <p>{footerInfo.discount}</p>
-                <p>{footerInfo.help}</p>
-                <section className='flex gap-4 my-6'>
+                <p className='my-5'>{footerInfo.member}</p>
+                <p className='my-5'>{footerInfo.discount}</p>
+                <p className='my-5'>{footerInfo.help}</p>
+                <section className='flex gap-4 my-10'>
                     <FaTwitter className='text-4xl bg-gray-500 p-2 rounded-full'/>
                     <FaFacebookF className='text-4xl bg-gray-500 p-2 rounded-full' />
                     <FaYoutube className='text-4xl bg-gray-500 p-2 rounded-full' />
