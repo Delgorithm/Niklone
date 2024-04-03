@@ -1,15 +1,15 @@
 import React from 'react'
-import carouselShoes from "../assets/data/data.json";
+import data from "../assets/data/data.json";
 
 const Carousel = () => {
-    const { firstShoe, secondShoe, thirdShoe, fourthShoe, fifthShoe } = carouselShoes.carouselShoes;
+    const { firstShoe, secondShoe, thirdShoe, fourthShoe, fifthShoe } = data.carouselShoes;
 
     const shoes = [firstShoe, secondShoe, thirdShoe, fourthShoe, fifthShoe];
 
     return (
         <section className='flex items-center overflow-x-auto whitespace-nowrap scroll-smooth overflow-hidden'>
-            {shoes.map((shoe, index) => (
-                <article key={index} className='m-6 cursor-pointer hover:scale-105 ease-in-out duration-150'>
+            {shoes.map(shoe => (
+                <article key={shoe.model} className='m-6 cursor-pointer hover:scale-105 ease-in-out duration-150'>
                     <figure>
                         <img src={shoe.img} alt={shoe.alt} />
                     </figure>
