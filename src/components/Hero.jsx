@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from './Button'
 import { Link } from 'react-router-dom'
 import Carousel from './Carousel'
 import hero from '../assets/data/data.json'
