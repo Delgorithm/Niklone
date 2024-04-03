@@ -153,7 +153,7 @@
             "alt": "Beautiful basket",
             "price": 229.99
         },
-        "elventhShoe": {
+        "eleventhShoe": {
             "img": "img/chaussure12.jpeg",
             "model": "Niklone Air Force 11",
             "type": "Chaussure pour Homme",
@@ -210,35 +210,35 @@
             "price": 229.99
         },
         "nineteenthShoe": {
-            "img": "img/chaussure20.jpeg",
+            "img": "img/chaussure20.png",
             "model": "Niklone Air Force 19",
             "type": "Chaussure pour Homme",
             "alt": "Beautiful basket",
             "price": 229.99
         },
         "twenthShoe": {
-            "img": "img/chaussure21.jpeg",
+            "img": "img/chaussure21.png",
             "model": "Niklone Air Force 20",
             "type": "Chaussure pour Homme",
             "alt": "Beautiful basket",
             "price": 229.99
         },
-        "twentyFisrtShoe": {
-            "img": "img/chaussure22.jpeg",
+        "twentyFirstShoe": {
+            "img": "img/chaussure22.png",
             "model": "Niklone Air Force 21",
             "type": "Chaussure pour Homme",
             "alt": "Beautiful basket",
             "price": 229.99
         },
         "twentySecondShoe": {
-            "img": "img/chaussure23.jpeg",
+            "img": "img/chaussure23.png",
             "model": "Niklone Air Force 22",
             "type": "Chaussure pour Homme",
             "alt": "Beautiful basket",
             "price": 229.99
         },
         "twentyThirdShoe": {
-            "img": "img/chaussure24.jpeg",
+            "img": "img/chaussure24.png",
             "model": "Niklone Air Force 23",
             "type": "Chaussure pour Homme",
             "alt": "Beautiful basket",
