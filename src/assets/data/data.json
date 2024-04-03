@@ -244,5 +244,12 @@
             "alt": "Beautiful basket",
             "price": 229.99
         }
+    },
+
+    "catalogueSelect": {
+        "lifestyle": "Lifestyle",
+        "jordan": "Jordan",
+        "running": "Running",
+        "basketball": "Basketball"
     }
 }
