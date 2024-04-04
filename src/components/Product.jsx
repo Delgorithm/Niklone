@@ -39,7 +39,7 @@ const Product = ({ allShoes, allSizes }) => {
 								key={index}
 								type="button"
 								onClick={() => handleClick(size)}
-								className="m-1 px-3 py-2 border-[0.1px] border-gray-300 rounded hover:border-[1px] focus:bg-black focus:text-white">
+								className="m-1 px-3 py-2 border-[0.1px] border-gray-300 rounded hover:border-[1px] hover:bg-black hover:text-white focus:bg-black focus:text-white">
 								{size}
 							</button>
 						))}
