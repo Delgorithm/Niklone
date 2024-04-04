@@ -15,6 +15,12 @@ function App() {
   const { size385, size39, size40, size405, size41, size42, size425, size43 ,size44, size445, size45, size455, size46, size47, size475, size485, size495 } = data.sizes;
   const allSizes = [size385, size39, size40, size405, size41, size42, size425, size43 ,size44, size445, size45, size455, size46, size47, size475, size485, size495];
 
+  const { detail, detailColor, detailArticle, deliveryReturn, detailReturn, detailMake, detailMethode } = data.detailProduct;
+  const allDetail = [detail, detailColor, detailArticle, deliveryReturn, detailReturn, detailMake, detailMethode];
+
+  const { review, star, title, date, reviewClient } = data.detailReview;
+  const allReview = [review, star, title, date, reviewClient];
+
   return (
     <Router>
       <Routes>
