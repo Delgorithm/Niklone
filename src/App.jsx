@@ -6,6 +6,8 @@ import User from './pages/User'
 import Catalogue from './components/Catalogue'
 import Product from './components/Product'
 import data from "./assets/data/data.json"
+import Login from './pages/Login'
+import Register from './pages/Register'
 
 function App() {
 
@@ -24,9 +26,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={ <Home />} />
-        <Route path="/cart" element={ <Cart />} />
-        <Route path="/user" element={ <User />} />
+        <Route path="/" element={ <Home /> } />
+        <Route path="/cart" element={ <Cart /> } />
+        <Route path="/user" element={ <User /> } />
+        <Route path="/login" element={ <Login /> } />
+        <Route path='/register' element={ <Register /> } />
         <Route path='/catalogue' element={ <Catalogue allShoes={allShoes} /> } />
         <Route path='/catalogue/:id' element={ <Product allShoes={allShoes} allSizes={allSizes}/> } />
       </Routes>
