@@ -121,8 +121,12 @@ const Navbar = () => {
 										En savoir plus
 									</a>
 								</p>
-								<Button color="black" text="white" label="Nous rejoindre" />
-								<Button color="" label="S'identifier" />
+								<Link to="/register">
+									<Button color="black" text="white" label="Nous rejoindre" />
+								</Link>
+								<Link to="/login">
+									<Button color="" label="S'identifier" />
+								</Link>
 							</section>
 						</article>
 					)}
