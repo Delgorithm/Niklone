@@ -1,13 +1,14 @@
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { UserAuthContextProvider } from './context/AuthContext/UserAuthContext'
 import Cart from './pages/Cart'
 import Home from './pages/Home'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import User from './pages/User'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import Newsletter from './pages/Newsletter'
 import Catalogue from './components/Catalogue'
 import Product from './components/Product'
 import data from "./assets/data/data.json"
-import Login from './pages/Login'
-import Register from './pages/Register'
+import './App.css'
 
 function App() {
 
@@ -24,17 +25,19 @@ function App() {
   const allReview = [review, star, title, date, reviewClient];
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/cart" element={ <Cart /> } />
-        <Route path="/user" element={ <User /> } />
-        <Route path="/login" element={ <Login /> } />
-        <Route path='/register' element={ <Register /> } />
-        <Route path='/catalogue' element={ <Catalogue allShoes={allShoes} /> } />
-        <Route path='/catalogue/:id' element={ <Product allShoes={allShoes} allSizes={allSizes}/> } />
-      </Routes>
-    </Router>
+    <UserAuthContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={ <Home /> } />
+          <Route path="/cart" element={ <Cart /> } />
+          <Route path="/newsletter" element={ <Newsletter /> } />
+          <Route path='/signin' element={ <SignIn /> } />
+          <Route path='/signup' element={ <SignUp /> } />
+          <Route path='/catalogue' element={ <Catalogue allShoes={allShoes} /> } />
+          <Route path='/catalogue/:id' element={ <Product allShoes={allShoes} allSizes={allSizes}/> } />
+        </Routes>
+      </Router>
+    </UserAuthContextProvider>
   )
 }
 
