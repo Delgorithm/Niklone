@@ -81,7 +81,7 @@ const Navbar = () => {
 					<Link to="/cart">
 						<CiShoppingCart className="text-2xl" />
 					</Link>
-					<Link to="/user">
+					<Link to="/Newsletter">
 						<CiUser className="text-2xl" />
 					</Link>
 
@@ -121,10 +121,10 @@ const Navbar = () => {
 										En savoir plus
 									</a>
 								</p>
-								<Link to="/register">
+								<Link to="/signup">
 									<Button color="black" text="white" label="Nous rejoindre" />
 								</Link>
-								<Link to="/login">
+								<Link to="/signin">
 									<Button color="" label="S'identifier" />
 								</Link>
 							</section>
