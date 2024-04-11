@@ -9,6 +9,8 @@ import Catalogue from './components/Catalogue'
 import Product from './components/Product'
 import data from "./assets/data/data.json"
 import './App.css'
+import User from './pages/User'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
 
@@ -35,10 +37,17 @@ function App() {
           <Route path='/signup' element={ <SignUp /> } />
           <Route path='/catalogue' element={ <Catalogue allShoes={allShoes} /> } />
           <Route path='/catalogue/:id' element={ <Product allShoes={allShoes} allSizes={allSizes}/> } />
+          <Route path='/user' element={
+            <ProtectedRoute>
+              <User />
+            </ProtectedRoute>} 
+          />
         </Routes>
       </Router>
     </UserAuthContextProvider>
   )
 }
+
+
 
 export default App
