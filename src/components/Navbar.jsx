@@ -28,6 +28,8 @@ const Navbar = () => {
 		setIsSearchOpen(!isSearchOpen);
 	};
 
+	
+
 	return (
 		<header className="p-4">
 			<nav className="flex justify-between items-center">
