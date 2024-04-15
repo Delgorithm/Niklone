@@ -1,14 +1,13 @@
 import React from "react";
 import { useUserAuth } from "../context/AuthContext/UserAuthContext";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-	let { user } = useUserAuth();
-    const navigate = useNavigate();
-	console.log(user);
+	const { user } = useUserAuth();
+
 	if (!user) {
 		console.log(user);
-        return navigate('/signup');
+        return <Navigate to="/signup" />
 	}
 	return children;
 };
