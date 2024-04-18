@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
@@ -9,10 +9,14 @@ import { Link } from "react-router-dom";
 import navbarItems from "../assets/data/data.json";
 import searchItems from "../assets/data/data.json";
 import Button from "./Button";
+import { CartContext } from "../context/CartContext";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(true);
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
+	const { cart } = useContext(CartContext);
+
+	console.log(useContext(CartContext));
 
 	const { newArrivals, men, women, promotions, invitation } =
 		navbarItems.navbarItems
