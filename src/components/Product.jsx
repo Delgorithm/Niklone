@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
+import { CartContext } from "../context/CartContext";
 
 const Product = ({ allShoes, allSizes }) => {
 	const { id } = useParams();
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-	}, [id]);
+	const { addToCart } = useContext(CartContext);
 
 	const currentElement = allShoes.find((element) => element.model === id);
 
@@ -18,12 +17,18 @@ const Product = ({ allShoes, allSizes }) => {
 		console.log(size);
 	};
 
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [id]);
+
 	return (
 		<>
 			<Navbar />
 			<section className="m-6">
 				<h1 className="text-xl">{currentElement.model}</h1>
-				<p className="text-sm">{currentElement.type}</p>
+				<Link to="/catalogue">
+					<p className="text-sm">{currentElement.type}</p>
+				</Link>
 				<p>{currentElement.price} €</p>
 				<figure className="my-4">
 					<img src={currentElement.img} alt={currentElement.description} />
@@ -44,7 +49,9 @@ const Product = ({ allShoes, allSizes }) => {
 							</button>
 						))}
 					</article>
-					<button className="w-full rounded-full bg-black text-white text-lg py-4 hover:bg-zinc-600">
+					<button
+						className="w-full rounded-full bg-black text-white text-lg py-4 hover:bg-zinc-600"
+						onClick={() => addToCart(id, currentElement)}>
 						Ajouter au panier
 					</button>
 					<button className="w-full rounded-full border-2 text-lg py-4 mt-4 hover:border-black flex justify-center items-center gap-2">
