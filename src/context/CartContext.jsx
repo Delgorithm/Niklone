@@ -12,8 +12,8 @@ const CartProvider = ({ children }) => {
 		});
 		if (cartItem) {
 			const newCart = [...cart].map((item) => {
-				if (item.id === id) {
-					return { ...item, price: cartItem.amount + 1 };
+				if (item.id === currentElement.id) {
+					return { ...item, amount: cartItem.amount + 1 };
 				} else {
 					return item;
 				}
@@ -23,10 +23,16 @@ const CartProvider = ({ children }) => {
 			setCart([...cart, newItem]);
 		}
 	};
-	console.log(cart);
+
+	const removeFromCart = (id) => {
+		const newCart = cart.filter((item) => {
+			return item.id !== id;
+		});
+		setCart(newCart);
+	};
 
 	return (
-		<CartContext.Provider value={{ cart, addToCart }}>
+		<CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
 			{children}
 		</CartContext.Provider>
 	);
