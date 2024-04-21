@@ -1,8 +1,8 @@
-import { useContext } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import CartItem from "../components/CartItem";
 import { CartContext } from "../context/CartContext";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 const Cart = () => {
 	const { cart } = useContext(CartContext);
@@ -10,24 +10,12 @@ const Cart = () => {
 	return (
 		<>
 			<Navbar />
-			<section className="m-6">
-				<h2 className="text-xl mb-4">Mon panier :</h2>
+			<section className="mx-4 pb-10">
+				<h1 className="text-xl">
+					Mon panier : {cart.length === 0 ? "Complètement vide 😔" : ""}
+				</h1>
 				{cart.map((item) => {
-					return (
-						<article
-							key={item.id}
-							className="flex items-center justify-between mb-4">
-							<figure>
-								<Link to={`/catalogue/${item.model}`}>
-									<img src={item.img} alt={item.name} className="w-24" />
-								</Link>
-							</figure>
-							<article className="text-end">
-								<p>{item.model}</p>
-								<p>{item.price}€</p>
-							</article>
-						</article>
-					);
+					return <CartItem item={item} key={item.id} />;
 				})}
 			</section>
 			<Footer />
