@@ -16,10 +16,8 @@ const Navbar = () => {
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
 	const { cart } = useContext(CartContext);
 
-	console.log(useContext(CartContext));
-
 	const { newArrivals, men, women, promotions, invitation } =
-		navbarItems.navbarItems
+		navbarItems.navbarItems;
 
 	const { popular, popularFirst, popularSecond, popularThird, popularFourth } =
 		searchItems.searchItems;
@@ -31,8 +29,6 @@ const Navbar = () => {
 	const toggleSearch = () => {
 		setIsSearchOpen(!isSearchOpen);
 	};
-
-	
 
 	return (
 		<header className="p-4">
@@ -47,7 +43,6 @@ const Navbar = () => {
 					</Link>
 				</figure>
 				<section className="flex gap-6">
-					{/*  Start : Search bar */}
 					<CiSearch
 						onClick={toggleSearch}
 						className="text-2xl cursor-pointer"
@@ -73,19 +68,29 @@ const Navbar = () => {
 								<section className="p-10">
 									<p className="opacity-30 font-semibold">{popular}</p>
 									<ul className="mt-4 flex flex-col gap-4">
-										<li className="text-xl font-medium hover:opacity-65">{popularFirst}</li>
-										<li className="text-xl font-medium hover:opacity-65">{popularSecond}</li>
-										<li className="text-xl font-medium hover:opacity-65">{popularThird}</li>
-										<li className="text-xl font-medium hover:opacity-65">{popularFourth}</li>
+										<li className="text-xl font-medium hover:opacity-65">
+											{popularFirst}
+										</li>
+										<li className="text-xl font-medium hover:opacity-65">
+											{popularSecond}
+										</li>
+										<li className="text-xl font-medium hover:opacity-65">
+											{popularThird}
+										</li>
+										<li className="text-xl font-medium hover:opacity-65">
+											{popularFourth}
+										</li>
 									</ul>
 								</section>
 							</section>
 						</article>
 					)}
-					{/*  End : Search bar */}
 
-					<Link to="/cart">
+					<Link to="/cart" className="relative">
 						<CiShoppingCart className="text-2xl" />
+						<p className="absolute -top-2 -right-2 rounded font-light">
+							{cart.length}
+						</p>
 					</Link>
 					<Link to="/Newsletter">
 						<CiUser className="text-2xl" />
@@ -127,12 +132,14 @@ const Navbar = () => {
 										En savoir plus
 									</a>
 								</p>
-								<Link to="/signup">
-									<Button color="black" text="white" label="Nous rejoindre" />
-								</Link>
-								<Link to="/signin">
-									<Button color="" label="S'identifier" />
-								</Link>
+								<article className="flex flex-col items-center gap-4">
+									<Link to="/signup">
+										<Button color="black" text="white" label="Nous rejoindre" />
+									</Link>
+									<Link to="/signin">
+										<Button color="" label="S'identifier" />
+									</Link>
+								</article>
 							</section>
 						</article>
 					)}
