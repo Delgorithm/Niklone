@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState, useContext } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
@@ -42,6 +42,7 @@ export function UserAuthContextProvider({ children }) {
 	);
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useUserAuth() {
 	return useContext(userAuthContext);
 }
