@@ -20,7 +20,6 @@ function CartItem({ item }) {
 					<article className="px-5">
 						<p>{model}</p>
 						<p>{price}€</p>
-						<p>{id}</p>
 					</article>
 					<article className="flex justify-between items-center gap-4">
 						<button type="button">
