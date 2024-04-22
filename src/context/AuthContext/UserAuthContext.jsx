@@ -4,9 +4,9 @@ import {
 	signInWithEmailAndPassword,
 	signOut,
 	onAuthStateChanged,
-} from "firebase/auth";
+} from "Firebase/auth";
 
-import { auth } from "../../api/Firebase/Firebase.js";
+import { auth } from "../../api/Firebase.js";
 
 const userAuthContext = createContext();
 
