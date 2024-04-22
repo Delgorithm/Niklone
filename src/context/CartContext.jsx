@@ -23,9 +23,18 @@ const CartProvider = ({ children }) => {
 	};
 
 	const removeFromCart = (id) => {
-		const newCart = cart.filter((item) => {
-			return item.id !== id;
-		});
+		const newCart = cart
+			.map((item) => {
+				if (item.id === id) {
+					if (item.amount > 1) {
+						return { ...item, amount: item.amount - 1 };
+					} else {
+						return null;
+					}
+				}
+				return item;
+			})
+			.filter((item) => item !== null);
 		setCart(newCart);
 	};
 
