@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useUserAuth } from "../context/AuthContext/UserAuthContext";
-import SignOut from "./SignOut";
 import Button from "../components/Button";
 
 const SignIn = () => {
@@ -69,7 +68,7 @@ const SignIn = () => {
 						/>
 					</article>
 				</form>
-				<section className="flex justify-around items-center mx-6 text-center">
+				<section className="flex justify-around items-center mx-6 text-center pb-10">
 					<div className="w-16 h-[0.5px] bg-black"></div>
 					<small className="flex flex-col text-xs">
 						J'ai pas encore de compte
@@ -80,7 +79,6 @@ const SignIn = () => {
 					<div className="w-16 h-[0.5px] bg-black"></div>
 					<span></span>
 				</section>
-				<SignOut />
 			</main>
 			<Footer />
 		</>

@@ -10,11 +10,14 @@ import navbarItems from "../assets/data/data.json";
 import searchItems from "../assets/data/data.json";
 import Button from "./Button";
 import { CartContext } from "../context/CartContext";
+import { useUserAuth } from "../context/AuthContext/UserAuthContext";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(true);
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
 	const { cart } = useContext(CartContext);
+	const { user } = useUserAuth();
+	const { logOut } = useUserAuth();
 
 	const { newArrivals, men, women, promotions, invitation } =
 		navbarItems.navbarItems;
@@ -26,6 +29,9 @@ const Navbar = () => {
 	};
 	const toggleSearch = () => {
 		setIsSearchOpen(!isSearchOpen);
+	};
+	const handleLogout = () => {
+		logOut();
 	};
 
 	const totalItems = cart.reduce((acc, cart) => acc + cart.amount, 0);
@@ -132,14 +138,36 @@ const Navbar = () => {
 										En savoir plus
 									</a>
 								</p>
-								<article className="flex flex-col items-center gap-4">
-									<Link to="/signup">
-										<Button color="black" text="white" label="Nous rejoindre" />
-									</Link>
-									<Link to="/signin">
-										<Button color="" label="S'identifier" />
-									</Link>
-								</article>
+								{user !== null ? (
+									<>
+										<article className="flex flex-col justify-center items-center pt-4">
+											<Link to="/user">
+												<Button label="Mon compte" text="white" color="black" />
+											</Link>
+											<Button
+												label="Se déconnecter"
+												text="black"
+												color="white"
+												onClick={handleLogout}
+											/>
+										</article>
+									</>
+								) : (
+									<>
+										<article className="flex flex-col items-center gap-4">
+											<Link to="/signup">
+												<Button
+													color="black"
+													text="white"
+													label="Nous rejoindre"
+												/>
+											</Link>
+											<Link to="/signin">
+												<Button color="" label="S'identifier" />
+											</Link>
+										</article>
+									</>
+								)}
 							</section>
 						</article>
 					)}
