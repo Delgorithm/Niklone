@@ -140,7 +140,7 @@ const Navbar = () => {
 								</p>
 								{user !== null ? (
 									<>
-										<article className="flex flex-col justify-center items-center pt-4">
+										<article className="flex flex-col justify-center items-center gap-4 pt-6">
 											<Link to="/user">
 												<Button label="Mon compte" text="white" color="black" />
 											</Link>
@@ -154,7 +154,7 @@ const Navbar = () => {
 									</>
 								) : (
 									<>
-										<article className="flex flex-col items-center gap-4">
+										<article className="flex flex-col items-center gap-4 pt-6">
 											<Link to="/signup">
 												<Button
 													color="black"
