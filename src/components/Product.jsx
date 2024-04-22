@@ -8,18 +8,18 @@ import { CartContext } from "../context/CartContext";
 
 const Product = ({ allShoes, allSizes }) => {
 	const { id } = useParams();
-
 	const { addToCart } = useContext(CartContext);
-
-	const currentElement = allShoes.find((element) => element.model === id);
-
+	const currentElement = allShoes.find((shoe) => shoe.model === id);
 	const handleClick = (size) => {
 		console.log(size);
 	};
-
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, [id]);
+
+	if (!currentElement) {
+		return <p>Produit introuvable</p>;
+	}
 
 	return (
 		<>
@@ -51,7 +51,7 @@ const Product = ({ allShoes, allSizes }) => {
 					</article>
 					<button
 						className="w-full rounded-full bg-black text-white text-lg py-4 hover:bg-zinc-600"
-						onClick={() => addToCart(id, currentElement)}>
+						onClick={() => addToCart(currentElement.id, currentElement)}>
 						Ajouter au panier
 					</button>
 					<button className="w-full rounded-full border-2 text-lg py-4 mt-4 hover:border-black flex justify-center items-center gap-2">

@@ -6,20 +6,18 @@ const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
 
 	const addToCart = (id, currentElement) => {
-		const newItem = { ...currentElement, amount: 1 };
-		const cartItem = cart.find((item) => {
-			return item.id === id;
-		});
+		const cartItem = cart.find((item) => item.id === id);
 		if (cartItem) {
-			const newCart = [...cart].map((item) => {
-				if (item.id === currentElement.id) {
-					return { ...item, amount: cartItem.amount + 1 };
+			const newCart = cart.map((item) => {
+				if (item.id === id) {
+					return { ...item, amount: item.amount + 1 };
 				} else {
 					return item;
 				}
 			});
 			setCart(newCart);
 		} else {
+			const newItem = { ...currentElement, amount: 1 };
 			setCart([...cart, newItem]);
 		}
 	};
