@@ -4,6 +4,7 @@ import CartItem from "../components/CartItem";
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 const Cart = () => {
 	const { cart } = useContext(CartContext);
@@ -28,6 +29,19 @@ const Cart = () => {
 						{cart.map((item) => {
 							return <CartItem item={item} key={item.id} />;
 						})}
+						<article>
+							{cart.length === 0 ? (
+								""
+							) : (
+								<article className="flex justify-center">
+									<Button
+										color="black"
+										label="Passer la commande"
+										text="white"
+									/>
+								</article>
+							)}
+						</article>
 					</section>
 				)}
 			</section>

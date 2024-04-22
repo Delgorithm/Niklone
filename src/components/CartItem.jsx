@@ -6,6 +6,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import Button from "../components/Button";
 
 function CartItem({ item }) {
+	const { cart } = useContext(CartContext);
 	const { removeFromCart } = useContext(CartContext);
 	const { id, model, price, amount, img, name } = item;
 	return (
