@@ -18,17 +18,17 @@ const Navbar = () => {
 
 	const { newArrivals, men, women, promotions, invitation } =
 		navbarItems.navbarItems;
-
 	const { popular, popularFirst, popularSecond, popularThird, popularFourth } =
 		searchItems.searchItems;
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
-
 	const toggleSearch = () => {
 		setIsSearchOpen(!isSearchOpen);
 	};
+
+	const totalItems = cart.reduce((acc, cart) => acc + cart.amount, 0);
 
 	return (
 		<header className="p-4">
@@ -88,8 +88,8 @@ const Navbar = () => {
 
 					<Link to="/cart" className="relative">
 						<CiShoppingCart className="text-2xl" />
-						<p className="absolute -top-2 -right-2 rounded font-light">
-							{cart.length}
+						<p className="absolute -top-2 -right-3 rounded font-light">
+							{totalItems}
 						</p>
 					</Link>
 					<Link to="/Newsletter">
