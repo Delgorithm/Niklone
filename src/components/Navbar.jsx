@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
@@ -98,9 +98,15 @@ const Navbar = () => {
 							{totalItems}
 						</p>
 					</Link>
-					<Link to="/Newsletter">
-						<CiUser className="text-2xl" />
-					</Link>
+					{user !== null ? (
+						<Link to="/user">
+							<CiUser className="text-2xl" />
+						</Link>
+					) : (
+						<Link to="/Newsletter">
+							<CiUser className="text-2xl" />
+						</Link>
+					)}
 
 					<button>
 						<CiMenuBurger
@@ -116,18 +122,20 @@ const Navbar = () => {
 									onClick={toggleMenu}
 									className="text-3xl flex self-end mt-3 cursor-pointer"
 								/>
-								<article className="flex items-center justify-between mx-2">
+								<Link
+									to="/catalogue"
+									className="flex items-center justify-between mx-2">
 									<p className="text-2xl">{newArrivals}</p>
 									<HiOutlineChevronRight className="text-xl" />
-								</article>
-								<article className="flex items-center justify-between mx-2">
+								</Link>
+								{/* <article className="flex items-center justify-between mx-2">
 									<p className="text-2xl">{men}</p>
 									<HiOutlineChevronRight className="text-xl" />
 								</article>
 								<article className="flex items-center justify-between mx-2">
 									<p className="text-2xl">{women}</p>
 									<HiOutlineChevronRight className="text-xl" />
-								</article>
+								</article> */}
 								<article className="flex items-center justify-between mx-2">
 									<p className="text-2xl">{promotions}</p>
 									<HiOutlineChevronRight className="text-xl" />

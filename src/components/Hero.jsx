@@ -18,9 +18,11 @@ const Hero = () => {
 				<p className="font-medium">{slogan}</p>
 				<h1 className="text-3xl font-bold my-4">{title}</h1>
 				<p className="text-gray-400">{description}</p>
-				<button className="px-4 py-1.5 bg-black text-white rounded-full mt-6 cursor-pointer hover:opacity-80">
+				<Link
+					to="/catalogue"
+					className="px-4 py-1.5 bg-black text-white rounded-full mt-6 cursor-pointer hover:opacity-80">
 					Acheter
-				</button>
+				</Link>
 			</article>
 			<article className="flex justify-between items-center mx-6">
 				<h2 className="text-2xl">Découvre les articles populaires</h2>
@@ -29,10 +31,6 @@ const Hero = () => {
 				</section>
 			</article>
 			<Carousel />
-			<article className="m-6">
-				<p>Chaussures</p>
-				<p className="mt-4">Articles du moment</p>
-			</article>
 		</section>
 	);
 };

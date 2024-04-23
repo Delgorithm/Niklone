@@ -12,9 +12,11 @@ const Catalogue = ({ allShoes }) => {
 		<>
 			<Navbar />
 			<section className="mx-2">
-				<h1 className="text-xl">Catalogue</h1>
-				<p>{allShoes.length} résultats</p>
-				<section className="grid grid-cols-2 gap-3 pb-10">
+				<article className="my-5">
+					<h1 className="text-xl">Catalogue :</h1>
+					<p>{allShoes.length} résultats</p>
+				</article>
+				<hgroup className="grid grid-cols-2 gap-3 pb-10">
 					{allShoes.map((shoe) => (
 						<article key={shoe.model}>
 							<Link to={`/catalogue/${shoe.model}`}>
@@ -27,7 +29,7 @@ const Catalogue = ({ allShoes }) => {
 							</Link>
 						</article>
 					))}
-				</section>
+				</hgroup>
 			</section>
 			<Footer />
 		</>
