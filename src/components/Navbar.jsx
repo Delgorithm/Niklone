@@ -103,7 +103,7 @@ const Navbar = () => {
 							<CiUser className="text-2xl" />
 						</Link>
 					) : (
-						<Link to="/Newsletter">
+						<Link to="/signin">
 							<CiUser className="text-2xl" />
 						</Link>
 					)}
