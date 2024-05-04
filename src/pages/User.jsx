@@ -20,30 +20,38 @@ function User({ allShoes }) {
 				<h1 className="text-2xl pb-4">Page utilisateur</h1>
 				<p className="pb-4">Utilisateur : {user.email}</p>
 				<p>Mes articles favoris :</p>
-				{favorites.map((favoriteId) => {
-					const favoriteShoes = allShoes.find((shoe) => shoe.id === favoriteId);
-					return (
-						<section
-							key={favoriteId}
-							className="flex justify-between items-center my-4">
-							<Link
-								to={`/catalogue/${favoriteShoes.model}`}
-								className="flex items-center gap-10">
-								<img
-									src={favoriteShoes.img}
-									alt={favoriteShoes.description}
-									className="w-20"
-								/>
-								<p>{favoriteShoes.model}</p>
-							</Link>
-							<button
-								onClick={() => handleRemoveFromFavorites(favoriteId)}
-								className="p-2">
-								<FaHeart className="text-2xl" />
-							</button>
-						</section>
-					);
-				})}
+				{favorites.length > 0 ? (
+					<>
+						{favorites.map((favoriteId) => {
+							const favoriteShoes = allShoes.find(
+								(shoe) => shoe.id === favoriteId
+							);
+							return (
+								<section
+									key={favoriteId}
+									className="flex justify-between items-center my-4">
+									<Link
+										to={`/catalogue/${favoriteShoes.model}`}
+										className="flex items-center gap-10">
+										<img
+											src={favoriteShoes.img}
+											alt={favoriteShoes.description}
+											className="w-20"
+										/>
+										<p>{favoriteShoes.model}</p>
+									</Link>
+									<button
+										onClick={() => handleRemoveFromFavorites(favoriteId)}
+										className="p-2">
+										<FaHeart className="text-2xl" />
+									</button>
+								</section>
+							);
+						})}
+					</>
+				) : (
+					<p className="p-10 text-center">Aucun favoris 😶</p>
+				)}
 			</section>
 			<Footer />
 		</>
