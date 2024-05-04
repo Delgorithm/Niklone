@@ -140,7 +140,7 @@ const Navbar = () => {
 									<p className="text-2xl">{promotions}</p>
 									<HiOutlineChevronRight className="text-xl" />
 								</article>
-								<p className="text-xl text-gray-500">
+								<p className="text-xl text-gray-500 mx-2">
 									{invitation}{" "}
 									<a href="" className="font-semibold text-black">
 										En savoir plus
