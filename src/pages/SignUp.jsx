@@ -44,6 +44,7 @@ const SignUp = () => {
 							required
 							placeholder="Email..."
 							className="border my-2 p-2 rounded-xl"
+							autoComplete="email"
 						/>
 					</section>
 					<section className="flex flex-col">
@@ -58,6 +59,7 @@ const SignUp = () => {
 							required
 							placeholder="Mot de passe..."
 							className="border my-2 p-2 rounded-xl"
+							autoComplete="current-password"
 						/>
 					</section>
 					<article className="flex justify-center py-5">
