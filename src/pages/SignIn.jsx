@@ -56,6 +56,7 @@ const SignIn = () => {
 							required
 							placeholder="Mot de passe..."
 							className="border my-2 p-2 rounded-xl"
+							autoComplete="new-password"
 						/>
 					</section>
 					<article className="flex justify-center py-5">
