@@ -1,4 +1,3 @@
-import React from "react";
 import { footerInfo } from "../assets/data/data.json";
 import { MdLocationPin } from "react-icons/md";
 import { FaTwitter } from "react-icons/fa";

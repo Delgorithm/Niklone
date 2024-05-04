@@ -3,7 +3,6 @@ import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
-import Button from "../components/Button";
 
 function CartItem({ item }) {
 	const { removeFromCart, addToCart } = useContext(CartContext);
