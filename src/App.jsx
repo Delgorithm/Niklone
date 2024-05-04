@@ -4,7 +4,6 @@ import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Newsletter from "./pages/Newsletter";
 import Catalogue from "./components/Catalogue";
 import Product from "./components/Product";
 import data from "./assets/data/data.json";
@@ -30,7 +29,6 @@ function App() {
 						<Routes>
 							<Route path="/" element={<Home />} />
 							<Route path="/cart" element={<Cart />} />
-							<Route path="/newsletter" element={<Newsletter />} />
 							<Route path="/signin" element={<SignIn />} />
 							<Route path="/signup" element={<SignUp />} />
 							<Route
