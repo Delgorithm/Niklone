@@ -1,29 +1,36 @@
 import { useContext, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
 import { useFavorite } from "../context/FavoriteContext";
+import { useUserAuth } from "../context/AuthContext/UserAuthContext";
 
 const Product = ({ allShoes, allSizes }) => {
+	const { user } = useUserAuth();
 	const { id } = useParams();
 	const { addToCart } = useContext(CartContext);
 	const { addToFavorites, removeFromFavorites, favorites } = useFavorite();
+	const navigate = useNavigate();
 
 	const currentElement = allShoes.find((shoe) => shoe.model === id);
+	const isFavorite = favorites.includes(currentElement.id);
 
 	const handleClick = (size) => {
 		console.log(size);
 	};
 
 	const handleFavorites = () => {
-		const isFavorite = favorites.includes(currentElement.id);
-		if (isFavorite) {
-			removeFromFavorites(currentElement.id);
+		if (user) {
+			if (isFavorite) {
+				removeFromFavorites(currentElement.id);
+			} else {
+				addToFavorites(currentElement.id);
+			}
 		} else {
-			addToFavorites(currentElement.id);
+			navigate("/signup");
 		}
 	};
 
