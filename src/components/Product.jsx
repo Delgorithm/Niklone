@@ -5,14 +5,28 @@ import Footer from "./Footer";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
+import { useFavorite } from "../context/FavoriteContext";
 
 const Product = ({ allShoes, allSizes }) => {
 	const { id } = useParams();
 	const { addToCart } = useContext(CartContext);
+	const { addToFavorites, removeFromFavorites, favorites } = useFavorite();
+
 	const currentElement = allShoes.find((shoe) => shoe.model === id);
+
 	const handleClick = (size) => {
 		console.log(size);
 	};
+
+	const handleFavorites = () => {
+		const isFavorite = favorites.includes(currentElement.id);
+		if (isFavorite) {
+			removeFromFavorites(currentElement.id);
+		} else {
+			addToFavorites(currentElement.id);
+		}
+	};
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, [id]);
@@ -54,8 +68,18 @@ const Product = ({ allShoes, allSizes }) => {
 						onClick={() => addToCart(currentElement.id, currentElement)}>
 						Ajouter au panier
 					</button>
-					<button className="w-full rounded-full border-2 text-lg py-4 mt-4 hover:border-black flex justify-center items-center gap-2">
-						Ajouter aux favoris <CiHeart />
+					<button
+						className="w-full rounded-full border-2 text-lg py-4 mt-4 hover:border-black flex justify-center items-center gap-2"
+						onClick={handleFavorites}>
+						{favorites.includes(currentElement.id) ? (
+							<>
+								Retirer des favoris <FaHeart />
+							</>
+						) : (
+							<>
+								Ajouter au favoris <CiHeart />
+							</>
+						)}
 					</button>
 				</section>
 			</section>
