@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -23,6 +23,10 @@ const SignIn = () => {
 			setError(err.message);
 		}
 	};
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<>
@@ -56,12 +60,12 @@ const SignIn = () => {
 							required
 							placeholder="Mot de passe..."
 							className="border my-2 p-2 rounded-xl"
-							autoComplete="new-password"
+							autoComplete="current-password"
 						/>
 					</section>
 					<article className="flex justify-center py-5">
 						<Button
-							label="Se connecter"
+							label="Connexion"
 							color="black"
 							text="white"
 							onClick={handleSubmit}

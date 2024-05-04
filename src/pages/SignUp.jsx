@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -23,6 +23,10 @@ const SignUp = () => {
 			setError(err.message);
 		}
 	};
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<>
@@ -64,7 +68,7 @@ const SignUp = () => {
 					</section>
 					<article className="flex justify-center py-5">
 						<Button
-							label="Se connecter"
+							label="Créer un compte"
 							color="black"
 							text="white"
 							onClick={handleSubmit}
