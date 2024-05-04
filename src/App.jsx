@@ -45,7 +45,7 @@ function App() {
 								path="/user"
 								element={
 									<ProtectedRoute>
-										<User />
+										<User allShoes={allShoes} />
 									</ProtectedRoute>
 								}
 							/>
