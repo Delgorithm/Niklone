@@ -1,23 +1,38 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const FavoriteContext = createContext();
 
-const FavoriteProvder = ({ children }) => {
-    const [favorite, setFavorite] = useState([]);
+export const FavoriteProvider = ({ children }) => {
+	const [favorites, setFavorites] = useState([]);
 
-    const addToFavorite = (id, currentElement) => {
-        const favoriteITem = favorite.find((item) => item.id === id);
-        if (favoriteITem) {
-            const newFavorite = favorite.map((item) => {
-                if (item.id === id) {
-                    return { ...item, amount: item.amount + 1 };
-                } else {
-                    return item;
-                }
-            });
-            setFavorite(newFavorite);
-        }
-    }
-}
+	const addToFavorites = (productId) => {
+		setFavorites((prevFavorites) => [...prevFavorites, productId]);
+		console.log("Ajout aux favoris");
+	};
 
-export default FavoriteContext;
+	const removeFromFavorites = (productId) => {
+		setFavorites((prevFavorites) =>
+			prevFavorites.filter((id) => id !== productId)
+		);
+		console.log("Retirer des favoris");
+	};
+
+	const isFavorite = (productId) => {
+		console.log("favoris");
+		return favorites.includes(productId);
+	};
+
+	return (
+		<FavoriteContext.Provider
+			value={{
+				favorites,
+				addToFavorites,
+				removeFromFavorites,
+				isFavorite,
+			}}>
+			{children}
+		</FavoriteContext.Provider>
+	);
+};
+
+export const useFavorite = () => useContext(FavoriteContext);
