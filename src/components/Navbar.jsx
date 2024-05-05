@@ -21,6 +21,7 @@ const Navbar = () => {
 
 	const { newArrivals, men, women, promotions, invitation } =
 		navbarItems.navbarItems;
+
 	const { popular, popularFirst, popularSecond, popularThird, popularFourth } =
 		searchItems.searchItems;
 
@@ -49,48 +50,9 @@ const Navbar = () => {
 					</Link>
 				</figure>
 				<section className="flex gap-6">
-					<CiSearch
-						onClick={toggleSearch}
-						className="text-2xl cursor-pointer"
-					/>
-					{isSearchOpen && (
-						<article className="fixed h-full w-screen lg:hidden top-0 right-0 z-50">
-							<section className="text-black bg-white flex-col absolute top-0 right-0 h-screen z-50 w-full">
-								<section className="flex justify-center items-center gap-2 pt-4">
-									<button>
-										<CiSearch className="text-4xl bg-gray-200 p-2 rounded-full" />
-									</button>
-									<input
-										type="text"
-										className="bg-gray-200 opacity-85 p-2 rounded-3xl outline-none pl-4"
-										placeholder="Rechercher"
-									/>
-									<button
-										onClick={toggleSearch}
-										className="font-semibold text-lg">
-										Annuler
-									</button>
-								</section>
-								<section className="p-10">
-									<p className="opacity-30 font-semibold">{popular}</p>
-									<ul className="mt-4 flex flex-col gap-4">
-										<li className="text-xl font-medium hover:opacity-65">
-											{popularFirst}
-										</li>
-										<li className="text-xl font-medium hover:opacity-65">
-											{popularSecond}
-										</li>
-										<li className="text-xl font-medium hover:opacity-65">
-											{popularThird}
-										</li>
-										<li className="text-xl font-medium hover:opacity-65">
-											{popularFourth}
-										</li>
-									</ul>
-								</section>
-							</section>
-						</article>
-					)}
+					<Link to="/search">
+						<CiSearch className="text-2xl cursor-pointer" />
+					</Link>
 
 					<Link to="/cart" className="relative">
 						<CiShoppingCart className="text-2xl" />
