@@ -12,6 +12,7 @@ import User from "./pages/User";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CartProvider from "./context/CartContext";
 import { FavoriteProvider } from "./context/FavoriteContext";
+import Search from "./pages/Search";
 
 function App() {
 	const { catalogueShoes, sizes, detailProduct, detailReview } = data;
@@ -31,6 +32,7 @@ function App() {
 							<Route path="/cart" element={<Cart />} />
 							<Route path="/signin" element={<SignIn />} />
 							<Route path="/signup" element={<SignUp />} />
+							<Route path="/search" element={<Search />} />
 							<Route
 								path="/catalogue"
 								element={<Catalogue allShoes={allShoes} />}
