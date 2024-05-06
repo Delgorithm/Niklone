@@ -12,6 +12,7 @@ app.use(express.json());
 const allowedOrigins = [
 	"https://niklone-frontend.vercel.app",
 	"https://niklone.vercel.app",
+	"https://niklone.vercel.app/",
 ];
 
 app.use(
