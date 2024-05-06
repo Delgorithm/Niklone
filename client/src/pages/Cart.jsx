@@ -19,7 +19,7 @@ const Cart = () => {
 			quantity: item.amount,
 		}));
 
-		await fetch("http://localhost:4000/checkout", {
+		await fetch(`${import.meta.env.VITE_BACKEND_URL}/checkout`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
