@@ -19,8 +19,8 @@ app.use(
 	})
 );
 
-app.get("hello", (req, res) => {
-	res.send("Hello world!");
+app.get("/", (req, res) => {
+	res.send("Hello world from backend!");
 });
 
 app.post("/checkout", async (req, res) => {
