@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(
 	cors({
-		origin: ["https://niklone.vercel.app"],
+		origin: ["https://niklone.vercel.app/"],
 		methods: ["GET", "POST"],
 		credentials: true,
 	})
