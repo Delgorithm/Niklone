@@ -12,8 +12,11 @@ app.use(express.json());
 const allowedOrigins = [
 	"https://niklone-frontend.vercel.app",
 	"https://niklone.vercel.app",
-	"https://niklone.vercel.app/",
 ];
+
+app.get("hello", (req, res) => {
+	res.send("Hello world!");
+});
 
 app.use(
 	cors({
