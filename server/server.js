@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
+let cors = require("cors");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const PORT = process.env.PORT || 4000;
 
@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(
 	cors({
-		origin: ["https://niklone-frontend.vercel.app"],
+		origin: ["https://niklone.vercel.app"],
 		methods: ["GET", "POST"],
 		credentials: true,
 	})
