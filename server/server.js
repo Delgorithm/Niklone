@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 let cors = require("cors");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 app.use(cors());
@@ -23,8 +24,8 @@ app.post("/checkout", async (req, res) => {
 	const session = await stripe.checkout.sessions.create({
 		line_items: lineItems,
 		mode: "payment",
-		success_url: "http://localhost:5173/success",
-		cancel_url: "http://localhost:5173/cancel",
+		success_url: `${process.env.VERCEL_URL}/success`,
+		cancel_url: `${process.env.VERCEL_URL}/cancel`,
 	});
 
 	res.send(
@@ -34,4 +35,4 @@ app.post("/checkout", async (req, res) => {
 	);
 });
 
-app.listen(4000, () => console.log("Listening on port 4000"));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
