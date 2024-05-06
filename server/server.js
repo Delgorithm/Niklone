@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 
-const allowedOrigins = ["http://niklone-frontend.vercel.app"];
+const allowedOrigins = ["https://niklone-frontend.vercel.app/"];
 
 app.use(
 	cors({
