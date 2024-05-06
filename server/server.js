@@ -9,9 +9,14 @@ app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 
+const allowedOrigins = [
+	"https://niklone-frontend.vercel.app",
+	"https://niklone.vercel.app",
+];
+
 app.use(
 	cors({
-		origin: ["https://niklone.vercel.app/"],
+		origin: allowedOrigins,
 		methods: ["GET", "POST"],
 		credentials: true,
 	})
