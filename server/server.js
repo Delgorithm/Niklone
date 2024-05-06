@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-let cors = require("cors");
+const cors = require("cors");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const PORT = process.env.PORT || 4000;
 
@@ -14,10 +14,6 @@ const allowedOrigins = [
 	"https://niklone.vercel.app",
 ];
 
-app.get("hello", (req, res) => {
-	res.send("Hello world!");
-});
-
 app.use(
 	cors({
 		origin: allowedOrigins,
@@ -25,6 +21,11 @@ app.use(
 		credentials: true,
 	})
 );
+
+app.get("hello", (req, res) => {
+	res.send("Hello world!");
+});
+
 
 app.post("/checkout", async (req, res) => {
 	console.log(req.body);
