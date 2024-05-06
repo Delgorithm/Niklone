@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 
-const allowedOrigins = ["https://niklone-frontend.vercel.app/"];
+const allowedOrigins = ["https://niklone-frontend.vercel.app"];
 
 app.use(
 	cors({
@@ -47,4 +47,4 @@ app.post("/checkout", async (req, res) => {
 
 app.listen(PORT, "0.0.0.0", () => {
 	console.log(`Listening on port ${PORT}`);
-})	;
+});
