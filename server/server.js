@@ -9,10 +9,7 @@ app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 
-const allowedOrigins = [
-	"https://niklone-frontend.vercel.app",
-	"https://niklone.vercel.app",
-];
+const allowedOrigins = ["https://niklone.vercel.app/"];
 
 app.use(
 	cors({
@@ -25,7 +22,6 @@ app.use(
 app.get("hello", (req, res) => {
 	res.send("Hello world!");
 });
-
 
 app.post("/checkout", async (req, res) => {
 	console.log(req.body);
