@@ -13,6 +13,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import CartProvider from "./context/CartContext";
 import { FavoriteProvider } from "./context/FavoriteContext";
 import Search from "./pages/Search";
+import Success from "./pages/Success";
+import Cancel from "./pages/Cancel";
 
 function App() {
 	const { catalogueShoes, sizes, detailProduct, detailReview } = data;
@@ -49,6 +51,8 @@ function App() {
 									</ProtectedRoute>
 								}
 							/>
+							<Route path="/success" element={<Success />} />
+							<Route path="/cancel" element={<Cancel />} />
 						</Routes>
 					</Router>
 				</CartProvider>
