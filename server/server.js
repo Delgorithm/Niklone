@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/checkout", async (req, res) => {
-	console.log(req.body);
+	console.log("Requête POST reçue sur /checkout :", req.body); // Ajoute un log pour afficher le corps de la requête
 	const items = req.body.items;
 
 	let lineItems = [];
@@ -28,22 +28,35 @@ app.post("/checkout", async (req, res) => {
 		});
 	});
 
-	const session = await stripe.checkout.sessions.create({
-		line_items: lineItems,
-		mode: "payment",
-		success_url: `${process.env.VERCEL_URL}/success`,
-		cancel_url: `${process.env.VERCEL_URL}/cancel`,
-	});
+	try {
+		const session = await stripe.checkout.sessions.create({
+			line_items: lineItems,
+			mode: "payment",
+			success_url: `${process.env.VERCEL_URL}/success`,
+			cancel_url: `${process.env.VERCEL_URL}/cancel`,
+		});
 
-	res.send(
-		JSON.stringify({
-			url: session.url,
-		})
-	);
+		console.log("Session créée avec succès :", session); // Ajoute un log pour afficher la session créée
+
+		res.send(
+			JSON.stringify({
+				url: session.url,
+			})
+		);
+	} catch (error) {
+		console.error(
+			"Une erreur s'est produite lors de la création de la session :",
+			error
+		); // Ajoute un log pour afficher les erreurs
+
+		res
+			.status(500)
+			.send("Une erreur s'est produite lors du traitement de la requête.");
+	}
 });
 
 app.listen(PORT, "0.0.0.0", () => {
-	console.log(`Listening on port ${PORT}`);
+	console.log(`Serveur en cours d'écoute sur le port ${PORT}`);
 });
 
 module.exports = app;
