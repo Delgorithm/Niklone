@@ -49,9 +49,12 @@ app.post("/checkout", async (req, res) => {
 			error
 		); // Ajoute un log pour afficher les erreurs
 
+		// Envoie une réponse JSON même en cas d'erreur
 		res
 			.status(500)
-			.send("Une erreur s'est produite lors du traitement de la requête.");
+			.json({
+				error: "Une erreur s'est produite lors du traitement de la requête.",
+			});
 	}
 });
 
