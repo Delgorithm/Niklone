@@ -5,19 +5,12 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const PORT = process.env.PORT || 4000;
 
 const app = express();
+
+// Utilisation du middleware cors pour gérer les en-têtes CORS
 app.use(cors());
+
 app.use(express.static("public"));
 app.use(express.json());
-
-const allowedOrigins = ["https://niklone.vercel.app/"];
-
-app.use(
-	cors({
-		origin: allowedOrigins,
-		methods: ["GET", "POST"],
-		credentials: true,
-	})
-);
 
 app.get("/", (req, res) => {
 	res.send("Hello world from backend!");
