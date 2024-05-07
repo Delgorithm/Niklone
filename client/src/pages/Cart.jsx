@@ -19,7 +19,7 @@ const Cart = () => {
 			quantity: item.amount,
 		}));
 
-		await fetch(`https://niklone-backend.vercel.app/checkout`, {
+		await fetch(`https://niklone-backend.vercel.app/`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
