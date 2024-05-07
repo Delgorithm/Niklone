@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
-// Utilisation du middleware cors pour gérer les en-têtes CORS
 app.use(cors());
 
 app.use(express.static("public"));
@@ -17,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/checkout", async (req, res) => {
-	console.log("Requête POST reçue sur /checkout :", req.body); // Ajoute un log pour afficher le corps de la requête
+	console.log("Requête POST reçue sur /checkout :", req.body);
 	const items = req.body.items;
 
 	let lineItems = [];
@@ -36,7 +35,7 @@ app.post("/checkout", async (req, res) => {
 			cancel_url: `${process.env.VERCEL_URL}/cancel`,
 		});
 
-		console.log("Session créée avec succès :", session); // Ajoute un log pour afficher la session créée
+		console.log("Session créée avec succès :", session);
 
 		res.send(
 			JSON.stringify({
@@ -47,14 +46,11 @@ app.post("/checkout", async (req, res) => {
 		console.error(
 			"Une erreur s'est produite lors de la création de la session :",
 			error
-		); // Ajoute un log pour afficher les erreurs
+		);
 
-		// Envoie une réponse JSON même en cas d'erreur
-		res
-			.status(500)
-			.json({
-				error: "Une erreur s'est produite lors du traitement de la requête.",
-			});
+		res.status(500).json({
+			error: "Une erreur s'est produite lors du traitement de la requête.",
+		});
 	}
 });
 
