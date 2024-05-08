@@ -19,7 +19,7 @@ const Cart = () => {
 			quantity: item.amount,
 		}));
 
-		await fetch(`https://niklone-backend.vercel.app/checkout`, {
+		await fetch(`http://localhost:4000/checkout`, {
 			mode: "cors",
 			method: "POST",
 			headers: {
