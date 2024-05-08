@@ -19,7 +19,7 @@ const Cart = () => {
 			quantity: item.amount,
 		}));
 
-		await fetch(`http://localhost:4000/checkout`, {
+		await fetch(`/checkout`, {
 			mode: "cors",
 			method: "POST",
 			headers: {
