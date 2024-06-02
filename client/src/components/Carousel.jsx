@@ -1,4 +1,3 @@
-import React from "react";
 import data from "../assets/data/data.json";
 import { Link } from "react-router-dom";
 
@@ -13,14 +12,16 @@ const Carousel = () => {
 			{shoes.map((shoe) => (
 				<article
 					key={shoe.model}
-					className="m-6 cursor-pointer hover:scale-105 ease-in-out duration-150">
+					className="xxs:m-4 xsl:m-6 cursor-pointer hover:scale-105 ease-in-out duration-150">
 					<Link to={`/catalogue/${shoe.model}`}>
 						<figure>
 							<img src={shoe.img} alt={shoe.alt} />
 						</figure>
-						<p className="text-sm">{shoe.model}</p>
-						<p className="text-sm text-gray-400">{shoe.type}</p>
-						<p className="text-sm mt-2 font-medium">{shoe.price} €</p>
+						<p className="text-sm md:text-2xl">{shoe.model}</p>
+						<p className="text-sm text-gray-400 md:text-xl">{shoe.type}</p>
+						<p className="text-sm mt-2 font-medium md:text-2xl">
+							{shoe.price} €
+						</p>
 					</Link>
 				</article>
 			))}

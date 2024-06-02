@@ -40,21 +40,20 @@ const Cart = () => {
 	return (
 		<>
 			<Navbar />
-			<section className="mx-4 pb-10">
+			<section className="mx-4 pb-10 md:h-[25rem] md:flex md:justify-center md:items-center">
 				{cart.length === 0 ? (
 					<section>
-						<h1 className="text-xl mt-3">
+						<h1 className="text-xl mt-3 md:text-3xl">
 							Votre panier : Complètement vide 😔🖐️
 						</h1>
 						<Link to="/catalogue" className="flex justify-center items-center">
-							<p className="bg-black text-white p-3 mt-10 rounded-lg">
+							<p className="bg-black text-white p-3 mt-10 rounded-lg md:text-2xl">
 								Catalogue des chaussures
 							</p>
 						</Link>
 					</section>
 				) : (
 					<section>
-						<h1 className="text-xl mt-3">Votre panier : 👟 </h1>
 						{cart.map((item) => {
 							return <CartItem item={item} key={item.id} />;
 						})}
@@ -65,9 +64,12 @@ const Cart = () => {
 								<section>
 									<p className="flex justify-end items-center gap-1 my-4 ">
 										Total:{" "}
-										<span className="font-bold text-xl">{totalPrice}</span>€
+										<span className="font-bold text-xl md:text-2xl">
+											{totalPrice}
+										</span>
+										€
 									</p>
-									<article className="flex justify-center">
+									<article className="flex justify-center md:mt-10">
 										<Button
 											color="black"
 											label="Passer la commande"

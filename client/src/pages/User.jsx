@@ -16,10 +16,10 @@ function User({ allShoes }) {
 	return (
 		<>
 			<Navbar />
-			<section className="mx-6">
-				<h1 className="text-2xl pb-4">Page utilisateur</h1>
-				<p className="pb-4">Utilisateur : {user.email}</p>
-				<p>Mes articles favoris :</p>
+			<section className="mx-6 md:h-[20rem] ">
+				<h1 className="text-2xl pb-4 md:text-3xl">Page utilisateur</h1>
+				<p className="pb-4 md:text-2xl">Utilisateur : {user.email}</p>
+				<p className="md:text-xl">Mes articles favoris :</p>
 				{favorites.length > 0 ? (
 					<>
 						{favorites.map((favoriteId) => {
@@ -50,7 +50,7 @@ function User({ allShoes }) {
 						})}
 					</>
 				) : (
-					<p className="p-10 text-center">Aucun favoris 😶</p>
+					<p className="p-10 text-center md:text-3xl">Aucun favoris 😶</p>
 				)}
 			</section>
 			<Footer />

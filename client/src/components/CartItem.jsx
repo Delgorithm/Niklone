@@ -9,22 +9,23 @@ function CartItem({ item }) {
 	const { id, model, price, amount, img, name } = item;
 	return (
 		<>
-			<section className=" mx-4 mt-6">
-				<hgroup className="flex items-center justify-between mb-10 h-20 relative">
+			<section className=" mx-4 pt-6 md:pt-10">
+				<h1 className="text-xl md:text-3xl">Votre panier : 👟 </h1>
+				<hgroup className="flex items-center justify-between mb-10 h-20 md:gap-32 md:pt-16">
 					<figure>
 						<Link to={`/catalogue/${model}`}>
-							<img src={img} alt={name} className="w-20" />
+							<img src={img} alt={name} className="w-20 md:w-32" />
 						</Link>
 					</figure>
 					<article className="px-5">
-						<p>{model}</p>
-						<p>{price}€</p>
+						<p className="md:text-3xl">{model}</p>
+						<p className="md:text-2xl">{price}€</p>
 					</article>
-					<article className="flex justify-between items-center gap-4">
+					<article className="flex justify-between items-center gap-4 md:gap-6">
 						<button type="button" onClick={() => removeFromCart(id)}>
-							<AiOutlineMinus className="w-6 h-10" />
+							<AiOutlineMinus className="w-6 h-10 md:text-3xl" />
 						</button>
-						{amount}
+						<p className="md:text-3xl">{amount}</p>
 						<button type="button" onClick={() => addToCart(id)}>
 							<AiOutlinePlus className="w-6 h-10" />
 						</button>

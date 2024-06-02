@@ -16,14 +16,14 @@ function SearchProduct({ inputText }) {
 	return (
 		<section className="grid grid-cols-2 gap-3 pb-10">
 			{filteredData.map((item) => (
-				<article key={item.id}>
+				<article key={item.id} className="md:py-4">
 					<Link to={`/catalogue/${item.model}`}>
 						<figure>
 							<img src={item.img} alt={item.description} />
 						</figure>
-						<p>{item.model}</p>
-						<p>{item.type}</p>
-						<p>{item.price}€</p>
+						<p className="md:text-3xl">{item.model}</p>
+						<p className="md:text-xl text-slate-500">{item.type}</p>
+						<p className="md:text-2xl">{item.price}€</p>
 					</Link>
 				</article>
 			))}
