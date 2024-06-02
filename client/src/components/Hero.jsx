@@ -10,7 +10,7 @@ const Hero = () => {
 			<section className="lg:flex lg:justify-between lg:items-center">
 				<figure className="flex justify-center items-center lg:mb-10">
 					<img
-						className=" w-full md:h-[40rem]"
+						className=" w-full md:h-[40rem] lg:h-[50rem]"
 						src="img/chaussure12.jpeg"
 						alt="A basket in black and white"
 					/>
