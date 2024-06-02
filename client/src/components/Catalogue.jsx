@@ -16,7 +16,7 @@ const Catalogue = ({ allShoes }) => {
 					<h1 className="text-xl">Catalogue :</h1>
 					<p>{allShoes.length} résultats</p>
 				</article>
-				<hgroup className="grid grid-cols-2 gap-3 pb-10">
+				<hgroup className="grid grid-cols-2 gap-3 pb-10 lg:grid-cols-3">
 					{allShoes.map((shoe) => (
 						<article key={shoe.model}>
 							<Link to={`/catalogue/${shoe.model}`}>

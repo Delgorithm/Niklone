@@ -76,7 +76,7 @@ const Navbar = () => {
 					</button>
 
 					{!isMenuOpen && (
-						<article className="fixed h-full w-screen lg:hidden bg-black/30 backdrop-blur-sm top-0 right-0 z-50">
+						<article className="fixed h-full w-screen bg-black/30 backdrop-blur-sm top-0 right-0 z-50">
 							<section className="text-black bg-white flex-col absolute top-0 right-0 h-screen p-6 gap-6 z-50 flex w-5/6 transition ease-in-out delay-200">
 								<IoClose
 									onClick={toggleMenu}

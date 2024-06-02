@@ -14,7 +14,7 @@ function SearchProduct({ inputText }) {
 	});
 
 	return (
-		<section className="grid grid-cols-2 gap-3 pb-10">
+		<section className="grid grid-cols-2 gap-3 pb-10 lg:grid-cols-3">
 			{filteredData.map((item) => (
 				<article key={item.id} className="md:py-4">
 					<Link to={`/catalogue/${item.model}`}>
