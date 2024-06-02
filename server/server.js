@@ -23,8 +23,8 @@ app.post("/checkout", async (req, res) => {
 	const session = await stripe.checkout.sessions.create({
 		line_items: lineItems,
 		mode: "payment",
-		success_url: "https://niklone.vercel.app//success",
-		cancel_url: "https://niklone.vercel.app//cancel",
+		success_url: "https://niklone.vercel.app/success",
+		cancel_url: "https://niklone.vercel.app/cancel",
 	});
 
 	res.send(
